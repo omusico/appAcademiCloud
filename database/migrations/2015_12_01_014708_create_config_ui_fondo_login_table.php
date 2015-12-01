@@ -15,6 +15,7 @@ class CreateConfigUiFondoLoginTable extends Migration
         Schema::create('config_ui_fondo_login', function (Blueprint $table) {
             $table->bigIncrements('fondo_id');
             $table->string('denominacion', 500);
+            $table->string('slogan', 500);
             $table->string('path', 500);
             $table->boolean('activo');
         });
