@@ -37,11 +37,11 @@
 </head>
 <body class="fixed-header   ">
 <!-- START PAGE-CONTAINER -->
-<div class="login-wrapper ">
+<div class="login-wrapper " style="background-color: {!! $ie->bg_wrapper_css !!}" >
     <!-- START Login Background Pic Wrapper-->
     <div class="bg-pic">
         <!-- START Background Pic-->
-        <img src="{{ asset('frontend/assets/img/bg_demo.jpg') }}" data-src="{{ asset('frontend/assets/img/bg_demo.jpg') }}" data-src-retina="{{ asset('frontend/assets/img/bg_demo.jpg') }}" alt="" class="lazy">
+        <img src="{{ asset('media/ui_institucional/bg_fondo1.jpg') }}" data-src="{{ asset('media/ui_institucional/bg_fondo1.jpg') }}" data-src-retina="{{ asset('media/ui_institucional/bg_fondo1.jpg') }}" alt="" class="lazy">
         <!-- END Background Pic-->
         <!-- START Background Caption-->
         <div class="bg-caption pull-bottom sm-pull-bottom text-white p-l-20 m-b-20">
@@ -57,23 +57,28 @@
     <!-- START Login Right Container-->
     <div class="login-container bg-white">
         <div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
-            <img src="{{ asset('frontend/assets/img/logo.png') }}" alt="logo" data-src="{{ asset('frontend/assets/img/logo.png') }}" data-src-retina="{{ asset('frontend/assets/img/logo_2x.png') }}" width="78" height="22">
-            <p class="p-t-35">Sign into your pages account</p>
+            <img src="{{ asset('media/ui_institucional/' . $ie->path_logo ) }}" alt="logo" data-src="{{ asset('media/ui_institucional/' . $ie->path_logo ) }}" data-src-retina="{{ asset('media/ui_institucional/' . $ie->path_logo ) }}}" width="130" >
+
+
+            <h5 class="font-montserrat no-margin text-uppercase">{!! $ie->denominacion !!}</h5>
+            <p class="p-t-35">Inicio de Sesión</p>
             <!-- START Login Form -->
-            <form id="form-login" class="p-t-15" role="form" action="index.html">
+
+            {!! Form::open(array('url' => 'acceso/iniciar_sesion', 'id' => 'frmLogin', 'class' => 'p-t-15')) !!}
+
                 <!-- START Form Control-->
                 <div class="form-group form-group-default">
-                    <label>Login</label>
+                    <label>Usuario</label>
                     <div class="controls">
-                        <input type="text" name="username" placeholder="User Name" class="form-control" required>
+                        {!! Form::text('username',  '', array('class' => 'form-control', 'required', 'placeholder' => 'usuario','autocomplete' => 'off')) !!}
                     </div>
                 </div>
                 <!-- END Form Control-->
                 <!-- START Form Control-->
                 <div class="form-group form-group-default">
-                    <label>Password</label>
+                    <label>clave de acceso</label>
                     <div class="controls">
-                        <input type="password" class="form-control" name="password" placeholder="Credentials" required>
+                        <input type="password" class="form-control" name="password" placeholder="clave" required>
                     </div>
                 </div>
                 <!-- START Form Control-->
@@ -81,25 +86,23 @@
                     <div class="col-md-6 no-padding">
                         <div class="checkbox ">
                             <input type="checkbox" value="1" id="checkbox1">
-                            <label for="checkbox1">Keep Me Signed in</label>
+                            <label for="checkbox1">Recordarme</label>
                         </div>
                     </div>
                     <div class="col-md-6 text-right">
-                        <a href="#" class="text-info small">Help? Contact Support</a>
+                        <a href="#" class="text-info small bold">Olvidó su clave?</a>
                     </div>
                 </div>
                 <!-- END Form Control-->
-                <button class="btn btn-primary btn-cons m-t-10" type="submit">Sign in</button>
-            </form>
+                <button class="btn {!! $ie->colores_css !!} btn-cons m-t-10" type="submit">Iniciar Sesión</button>
+            {!! Form::close() !!}
             <!--END Login Form-->
             <div class="pull-bottom sm-pull-bottom">
                 <div class="m-b-30 p-r-80 sm-m-t-20 sm-p-r-15 sm-p-b-20 clearfix">
-                    <div class="col-sm-3 col-md-2 no-padding">
-                        <img alt="" class="m-t-5" data-src="assets/img/demo/pages_icon.png" data-src-retina="assets/img/demo/pages_icon_2x.png" height="60" src="assets/img/demo/pages_icon.png" width="60">
-                    </div>
-                    <div class="col-sm-9 no-padding m-t-10">
+                    <div class="col-sm-712col-md-12 no-padding">
+                        <img alt="" class="m-t-5" data-src="{{ asset('frontend/assets/img/logo_academicloud.png') }}" data-src-retina="{{ asset('frontend/assets/img/logo_academicloud.png') }}" src="{{ asset('frontend/assets/img/logo_academicloud.png') }}" width="149" height="44">
                         <p><small>
-                                Create a pages account. If you have a facebook account, log into it for this process. Sign in with <a href="#" class="text-info">Facebook</a> or <a href="#" class="text-info">Google</a></small>
+                                Sistema de Gestión Académica en la Nube <i class="fa fa-facebook"></i></small>
                         </p>
                     </div>
                 </div>

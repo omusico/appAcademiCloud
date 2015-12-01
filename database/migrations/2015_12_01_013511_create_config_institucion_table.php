@@ -15,6 +15,7 @@ class CreateConfigInstitucionTable extends Migration
         Schema::create('config_institucion', function (Blueprint $table) {
             $table->bigIncrements('institucion_id');
             $table->string('denominacion', 500);
+            $table->string('denominacion_slogan', 100)->nullable();
             $table->string('direccion', 500)->nullable();
             $table->string('telefono_uno', 30)->nullable();
             $table->string('telefono_dos', 30)->nullable();
@@ -22,6 +23,7 @@ class CreateConfigInstitucionTable extends Migration
             $table->string('correo_institucional', 250);
             $table->string('path_logo', 300);
             $table->string('colores_css', 100);
+            $table->string('bg_wrapper_css', 100);
         });
     }
 
