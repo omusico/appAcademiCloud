@@ -13,8 +13,16 @@ class CreatTableRrhhFuncionario extends Migration
     public function up()
     {
         Schema::create('rrhh_funcionario', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            $table->bigIncrements('funcionario_id');
+            $table->bigInteger('persona_id')->unsigned();
+            $table->string('titulo', 300)->nullable();
+            $table->string('titulo_abreviatura', 30)->nullable();
+            $table->string('direccion', 250)->nullable();
+            $table->string('telefono_fijo', 50)->nullable();
+            $table->string('telefono_movil', 10)->nullable();
+            $table->string('path_imagen', 250)->nullable();
+            $table->foreign('persona_id')->references('persona_id')->on('rrhh_persona');
+
         });
     }
 

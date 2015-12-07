@@ -13,7 +13,7 @@ class CreateRrhhGeneroTable extends Migration
     public function up()
     {
         Schema::create('rrhh_genero', function (Blueprint $table) {
-            $table->bigIncrements('genero_id');
+            $table->bigInteger('genero_id')->unsigned()->primary();
             $table->string('denominacion', 250);
             $table->string('id_registro_civil', 250);
             $table->string('icono', 250);

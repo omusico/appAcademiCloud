@@ -17,6 +17,7 @@ class CreateConfigUiFondoLoginTable extends Migration
             $table->string('denominacion', 500);
             $table->string('slogan', 500);
             $table->string('path', 500);
+            $table->string('path2x', 500);
             $table->boolean('activo');
         });
     }

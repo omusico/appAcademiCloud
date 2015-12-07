@@ -22,6 +22,7 @@ class CreateRrhhPersonaTable extends Migration
             $table->string('nombres', 250);
             $table->string('nombre_corto', 250);
             $table->date('fecha_nacimiento')->nullable();
+            $table->string('correo', 250);
             $table->string('username', 100);
             $table->string('password', 700);
             $table->string('remember_token', 255);

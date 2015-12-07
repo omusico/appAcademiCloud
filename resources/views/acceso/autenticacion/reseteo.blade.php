@@ -36,87 +36,51 @@
     </script>
 </head>
 <body class="fixed-header   ">
-<!-- START PAGE-CONTAINER -->
-<div class="login-wrapper " style="background-color: {!! $ie->bg_wrapper_css !!}" >
-    <!-- START Login Background Pic Wrapper-->
-    <div class="bg-pic">
-        <!-- START Background Pic-->
-        @if($bg != null)
-                <img src="{{ asset('media/ui_institucional/' . $bg->path) }}" data-src="{{ asset('media/ui_institucional/' . $bg->path)  }}" data-src-retina="{{ asset('media/ui_institucional/' . $bg->path2x)  }}" alt="" class="lazy">
-        @else
-            <img src="{{ asset('frontend/assets/img/bg_fondo1.jpg') }}" data-src="{{ asset('frontend/assets/img/bg_fondo1.jpg') }}" data-src-retina="{{ asset('frontend/assets/img/bg_fondo1_2x.jpg') }}" alt="" class="lazy">
-        @endif
-        <!-- END Background Pic-->
-        <!-- START Background Caption-->
-        <div class="bg-caption pull-bottom sm-pull-bottom text-white p-l-20 m-b-20">
-            @if($bg != null)
-            <h2 class="semi-bold text-white">
-                {!! $bg->slogan !!}
-            </h2>
-            @endif
-            <p class="small">
-                Todos los derechos reservados © 2012-2015 CloudLabs.
-            </p>
-        </div>
-        <!-- END Background Caption-->
-    </div>
-    <!-- END Login Background Pic Wrapper-->
-    <!-- START Login Right Container-->
-    <div class="login-container bg-white">
-        <div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
-            <img src="{{ asset('media/ui_institucional/' . $ie->path_logo ) }}" alt="logo" data-src="{{ asset('media/ui_institucional/' . $ie->path_logo ) }}" data-src-retina="{{ asset('media/ui_institucional/' . $ie->path_logo ) }}}" width="130" >
-            <h5 class="font-montserrat no-margin text-uppercase">{!! $ie->denominacion !!}</h5>
-            <p class="p-t-35">Inicio de Sesión</p>
-            <!-- START Login Form -->
+<div class="register-container full-height sm-p-t-31">
+    <div class="container-sm-height full-height">
+        <div class="row row-sm-height">
+            <div class="col-sm-12 col-sm-height m-t">
+                <br><br>
+                <div class="text-center"><img src="{{ asset('frontend/assets/img/reseteo.png') }}" data-src="{{ asset('frontend/assets/img/reseteo.png') }}" data-src-retina="{{ asset('frontend/assets/img/reseteo2x.png') }}" alt="reseteo"  width="170" ></div>
 
-            {!! Form::open(array('url' => 'acceso/iniciar_sesion', 'id' => 'frmLogin', 'class' => 'p-t-15')) !!}
+                <h4 class="font-montserrat no-margin text-uppercase">{!! $ie->denominacion !!}</h4>
+                <p>
+                    <small>
+                        Para resetear su clave de acceso ingrese los siguientes datos:
+                    </small>
+                </p>
 
-                <!-- START Form Control-->
-                <div class="form-group form-group-default">
-                    <label>Usuario</label>
-                    <div class="controls">
-                        {!! Form::text('username',  '', array('class' => 'form-control', 'required', 'placeholder' => 'usuario','autocomplete' => 'off')) !!}
-                    </div>
-                </div>
-                <!-- END Form Control-->
-                <!-- START Form Control-->
-                <div class="form-group form-group-default">
-                    <label>clave de acceso</label>
-                    <div class="controls">
-                        <input type="password" class="form-control" name="password" placeholder="clave" required>
-                    </div>
-                </div>
-                <!-- START Form Control-->
-                <div class="row">
-                    <div class="col-md-6 no-padding">
-                        <div class="checkbox ">
-                            <input type="checkbox" value="1" id="checkbox1">
-                            <label for="checkbox1">Recordarme</label>
+                {!! Form::open(array('url' => 'pc_reseteo', 'id' => 'frm_reseteo', 'class' => 'p-t-15' )) !!}
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group form-group-default">
+                                <label>IDENTIFICACIÓN</label>
+                                <input type="text" name="identificacion"  class="form-control" required>
+                            </div>
+                            <div class="form-group form-group-default">
+                                <label>CORREO ELECTRÓNICO</label>
+                                <input type="email" name="email"  class="form-control" required>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6 text-right">
-                        <a href="{{ url('/reseteo') }}" class="text-info small bold">Olvidó su clave?</a>
+                    <div class="row m-t-10">
+                        <div class="col-md-12 text-right">
+                            <a href="{{ url('/') }}" class="text-info small bold">Cancelar</a>
+                        </div>
                     </div>
-                </div>
-                <!-- END Form Control-->
-                <button class="btn {!! $ie->colores_css !!} btn-cons m-t-10" type="submit">Iniciar Sesión</button>
-            {!! Form::close() !!}
-            <!--END Login Form-->
-            <div class="pull-bottom sm-pull-bottom">
-                <div class="m-b-30 p-r-80 sm-m-t-20 sm-p-r-15 sm-p-b-20 clearfix">
-                    <div class="col-sm-712col-md-12 no-padding">
-                        <img alt="" class="m-t-5" data-src="{{ asset('frontend/assets/img/logo_academicloud.png') }}" data-src-retina="{{ asset('frontend/assets/img/logo_academicloud.png') }}" src="{{ asset('frontend/assets/img/logo_academicloud.png') }}" width="149" height="44">
-                        <p>
-                            <small>Sistema de Gestión Académica en la Nube </small>
-                        </p>
-                    </div>
-                </div>
+                    <button class="btn btn-primary btn-cons m-t-10" type="submit">Resetear Clave de Acceso</button>
+                {!! Form::close() !!}
+
             </div>
         </div>
     </div>
-    <!-- END Login Right Container-->
 </div>
-<!-- END PAGE CONTAINER -->
+<div class=" full-width">
+    <center>
+        <img alt="" class="m-t-5" data-src="{{ asset('frontend/assets/img/logo_academicloud.png') }}" data-src-retina="{{ asset('frontend/assets/img/logo_academicloud.png') }}" src="{{ asset('frontend/assets/img/logo_academicloud.png') }}" width="149" height="44">
+    </center>
+</div>
+
 <!-- BEGIN VENDOR JS -->
 <script src="{{ asset('frontend/assets/plugins/pace/pace.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('frontend/assets/plugins/jquery/jquery-1.11.1.min.js') }}" type="text/javascript"></script>
@@ -133,6 +97,8 @@
 <script type="text/javascript" src="{{ asset('frontend/assets/plugins/classie/classie.js') }}"></script>
 <script src="{{ asset('frontend/assets/plugins/switchery/js/switchery.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('frontend/assets/plugins/jquery-validation/js/jquery.validate.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('frontend/assets/plugins/jquery-validation/js/localization/messages_es.min.js') }}" type="text/javascript"></script>
+
 <!-- END VENDOR JS -->
 <!-- BEGIN CORE TEMPLATE JS -->
 <script src="{{ asset('frontend/pages/js/pages.min.js') }}"></script>
@@ -143,7 +109,7 @@
 <script>
     $(function()
     {
-        $('#form-login').validate()
+        $('#frm_reseteo').validate()
     })
 </script>
 </body>
