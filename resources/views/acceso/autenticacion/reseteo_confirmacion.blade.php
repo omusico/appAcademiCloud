@@ -5,7 +5,6 @@
     <meta charset="utf-8" />
     <title>AcademiCloud - {!! $ie->denominacion !!}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta id="token" name="token" value="{{ csrf_token() }}">
     <link rel="apple-touch-icon" href="pages/ico/60.png">
     <link rel="apple-touch-icon" sizes="76x76" href="pages/ico/76.png">
     <link rel="apple-touch-icon" sizes="120x120" href="pages/ico/120.png">
@@ -27,8 +26,6 @@
     <!--[if lte IE 9]>
     <link href="{{ asset('frontend/pages/css/ie9.css') }}" rel="stylesheet" type="text/css" />
     <![endif]-->
-
-    <link href="{{ asset('frontend/assets/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">
     <script type="text/javascript">
         window.onload = function()
         {
@@ -38,66 +35,45 @@
         }
     </script>
 </head>
-<body class="fixed-header   ">
-<div class="register-container full-height sm-p-t-31" id="modulo">
-    <div class="container-sm-height full-height">
-        <div class="row row-sm-height">
-            <div class="col-sm-12 col-sm-height m-t">
-                <br><br>
-                <div class="text-center"><img src="{{ asset('frontend/assets/img/reseteo.png') }}" data-src="{{ asset('frontend/assets/img/reseteo.png') }}" data-src-retina="{{ asset('frontend/assets/img/reseteo2x.png') }}" alt="reseteo"  width="170" ></div>
-                <h4 class="font-montserrat no-margin text-uppercase">{!! $ie->denominacion !!}</h4>
-                <input type="hidden" v-model="base_url" value="{!! url('/') !!} ">
-                <p>
-                    <small>
-                        Para resetear su clave de acceso ingrese los siguientes datos:
-                    </small>
+<body class="fixed-header error-page  ">
+<div class="container-xs-height full-height">
+    <div class="row-xs-height">
+        <div class="col-xs-height col-middle">
+            <div class="error-container text-center">
+                <h1 class="error-number">500</h1>
+                <h2 class="semi-bold">Sorry but we couldnt find this page</h2>
+                <p>This page you are looking for does not exsist <a href="#">Report this?</a>
                 </p>
-
-                {!! Form::open(array('url' => '', 'id' => 'frm_reseteo', 'class' => 'p-t-15' )) !!}
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group form-group-default">
-                                <label>NOMBRE DE USUARIO</label>
-                                {!! Form::text('username', Input::old('username') ? Input::old('username') : '', array('class' => 'form-control', 'required', 'autocomplete' => 'off', 'v-model' => 'username')) !!}
-                            </div>
-                            <div class="form-group form-group-default">
-                                <label>CORREO ELECTRÓNICO</label>
-                                <input type="email" name="correo"  class="form-control" autocomplete="off" required v-model="correo">
-                            </div>
+                <div class="error-container-innner text-center">
+                    <form>
+                        <div class="form-group form-group-default input-group transparent text-left">
+                            <label>Search</label>
+                            <input class="form-control" placeholder="Try searching the missing page" type="email">
+                            <span class="input-group-addon pg-search"></span>
                         </div>
-                    </div>
-                    <div class="row m-t-10">
-                        <div class="col-md-12 text-right">
-                            <a href="{{ url('/') }}" class="text-info small bold">Cancelar</a>
-                        </div>
-                    </div>
-                    <button class="btn btn-primary btn-cons m-t-10" type="button" v-on:click="pc_reseteo">Resetear Clave de Acceso</button>
-                {!! Form::close() !!}
-
-                <div class="modal fade fill-in" id="modalFillIn" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog ">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <div class="progress-circle-indeterminate"></div>
-                            </div>
-                            <div class="modal-footer">
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
+                    </form>
                 </div>
-
-
             </div>
         </div>
     </div>
 </div>
-<div class=" full-width">
-    <center>
-        <img alt="" class="m-t-5" data-src="{{ asset('frontend/assets/img/logo_academicloud.png') }}" data-src-retina="{{ asset('frontend/assets/img/logo_academicloud.png') }}" src="{{ asset('frontend/assets/img/logo_academicloud.png') }}" width="149" height="44">
-    </center>
+<div class="pull-bottom sm-pull-bottom full-width">
+    <div class="error-container">
+        <div class="error-container-innner">
+            <div class="m-b-30 sm-m-t-20 sm-p-r-15 sm-p-b-20 clearfix">
+                <div class="col-sm-3 no-padding">
+                    <img alt="" class="m-t-5" data-src="assets/img/demo/pages_icon.png" data-src-retina="assets/img/demo/pages_icon_2x.png" height="60" src="assets/img/demo/pages_icon.png" width="60">
+                </div>
+                <div class="col-sm-9 no-padding">
+                    <p><small>Create a pages account. If you have a facebook account, log into it for this process.
+                            Sign in with <a href="#">Facebook</a> or <a href="#">Google</a></small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<!-- END PAGE CONTAINER -->
 
 <!-- BEGIN VENDOR JS -->
 <script src="{{ asset('frontend/assets/plugins/pace/pace.min.js') }}" type="text/javascript"></script>
@@ -117,8 +93,6 @@
 <script src="{{ asset('frontend/assets/plugins/jquery-validation/js/jquery.validate.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('frontend/assets/plugins/jquery-validation/js/localization/messages_es.min.js') }}" type="text/javascript"></script>
 
-<script src="{{ asset('frontend/assets/plugins/sweetalert/sweetalert.min.js') }}" type="text/javascript"></script>
-
 <!-- END VENDOR JS -->
 <!-- BEGIN CORE TEMPLATE JS -->
 <script src="{{ asset('frontend/pages/js/pages.min.js') }}"></script>
@@ -126,15 +100,6 @@
 <!-- BEGIN PAGE LEVEL JS -->
 <script src="{{ asset('frontend/assets/js/scripts.js') }}" type="text/javascript"></script>
 <!-- END PAGE LEVEL JS -->
-
-
-
-<script src="{{ asset('frontend/assets/plugins/vue/vue.js') }}" type="text/javascript"></script>
-<script src="{{ asset('frontend/assets/plugins/vue/vue-resource.js') }}" type="text/javascript"></script>
-
-<script src="{{ asset('apps/acceso/app_reseteo_clave.js') }}" type="text/javascript"></script>
-
-
 <script>
     $(function()
     {

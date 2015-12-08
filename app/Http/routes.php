@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'Acceso\AccesoController@login');
+Route::get('acceso', 'Acceso\AccesoController@login');
 
 Route::get('reseteo', 'Acceso\AccesoController@reseteo');
 Route::post('pc_reseteo', 'Acceso\AccesoController@pc_reseteo');

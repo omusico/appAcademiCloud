@@ -14,8 +14,8 @@ class ProcesarReseteo extends Request {
     public function rules()
     {
         return [
-            'identificacion' => 'required',
-            'correo' => 'required|mail',
+            'username' => 'required',
+            'correo' => 'required|email',
         ];
     }
 }

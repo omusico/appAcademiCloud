@@ -25,7 +25,7 @@ class CreateRrhhPersonaTable extends Migration
             $table->string('correo', 250);
             $table->string('username', 100);
             $table->string('password', 700);
-            $table->string('remember_token', 255);
+            $table->string('remember_token', 255)->nullable();
             $table->boolean('requiere_cambio_clave');
             $table->date('fecha_creacion');
 
