@@ -15,7 +15,7 @@ class rrhhPersona extends Model implements AuthenticatableContract, CanResetPass
 
     protected $table = 'rrhh_persona';
     protected $primaryKey = 'persona_id';
-    protected $fillable = ['persona_estado_id', 'genero_id', 'tipo_identificacion_id', 'identificacion', 'apellidos', 'nombres', 'nombre_corto', 'fecha_nacimiento', 'correo', 'username', 'password', 'remember_token', 'requiere_cambio_clave', 'fecha_creacion'];
+    protected $fillable = ['persona_estado_id', 'genero_id', 'tipo_identificacion_id', 'identificacion', 'apellidos', 'nombres', 'nombre_corto', 'fecha_nacimiento', 'correo', 'username', 'password', 'remember_token', 'requiere_cambio_clave', 'fecha_creacion', 'path_avatar', 'habilitado_funcionario', 'habilitado_estudiante', 'habilitado_familiar'];
     public $timestamps = false;
 
 

@@ -29,6 +29,9 @@ class CreateRrhhPersonaTable extends Migration
             $table->boolean('requiere_cambio_clave');
             $table->date('fecha_creacion');
             $table->string('path_avatar', 500)->nullable();
+            $table->tinyInteger('habilitado_funcionario');
+            $table->tinyInteger('habilitado_estudiante');
+            $table->tinyInteger('habilitado_familiar');
 
             $table->foreign('tipo_identificacion_id')->references('tipo_identificacion_id')->on('rrhh_tipo_identificacion');
             $table->foreign('genero_id')->references('genero_id')->on('rrhh_genero');

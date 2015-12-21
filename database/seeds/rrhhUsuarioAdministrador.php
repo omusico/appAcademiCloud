@@ -25,7 +25,10 @@ class rrhhUsuarioAdministrador extends Seeder
             'username' => '0103951703',
             'password' => '$2y$10$cjt7Is0CgzSCvQT3Hcy9COYLG3eUYh99M0hEGarc2xqdhZzn/pCoC',
             'requiere_cambio_clave' => false,
-            'fecha_creacion' => Carbon::now()
+            'fecha_creacion' => Carbon::now(),
+            'habilitado_funcionario' => 1,
+            'habilitado_estudiante' => 0,
+            'habilitado_familiar' => 0
         ]);
     }
 }

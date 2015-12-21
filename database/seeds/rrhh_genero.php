@@ -16,14 +16,14 @@ class rrhh_genero extends Seeder
             'denominacion' => 'Masculino',
             'id_registro_civil' => 1,
             'icono' => 'fa fa-male',
-            'avatar' => 'avatar_male.jpg'
+            'avatar' => 'avatar_user_male.jpg'
         ]);
         DB::table('rrhh_genero')->insert([
             'genero_id' => 4,
             'denominacion' => 'Femenino',
             'id_registro_civil' => 2,
             'icono' => 'fa fa-female',
-            'avatar' => 'avatar_female.jpg'
+            'avatar' => 'avatar_user_female.jpg'
         ]);
     }
 }
