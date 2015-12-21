@@ -26,6 +26,7 @@
     <!--[if lte IE 9]>
     <link href="{{ asset('frontend/pages/css/ie9.css') }}" rel="stylesheet" type="text/css" />
     <![endif]-->
+    <link rel="stylesheet" href="{{ asset('frontend/assets/plugins/toastr/toastr.min.css') }}" type="text/css" />
     <script type="text/javascript">
         window.onload = function()
         {
@@ -69,13 +70,13 @@
             <p class="p-t-35">Inicio de Sesión</p>
             <!-- START Login Form -->
 
-            {!! Form::open(array('url' => 'acceso/iniciar_sesion', 'id' => 'frmLogin', 'class' => 'p-t-15')) !!}
+            {!! Form::open(array('url' => 'iniciar_sesion', 'id' => 'frmLogin', 'class' => 'p-t-15')) !!}
 
                 <!-- START Form Control-->
                 <div class="form-group form-group-default">
                     <label>Usuario</label>
                     <div class="controls">
-                        {!! Form::text('username',  '', array('class' => 'form-control', 'required', 'placeholder' => 'usuario','autocomplete' => 'off')) !!}
+                        {!! Form::text('username', Input::old('username') ? Input::old('username') : '', array('class' => 'form-control', 'required', 'placeholder' => 'usuario', 'autocomplete' => 'off')) !!}
                     </div>
                 </div>
                 <!-- END Form Control-->
@@ -90,9 +91,10 @@
                 <div class="row">
                     <div class="col-md-6 no-padding">
                         <div class="checkbox ">
-                            <input type="checkbox" value="1" id="checkbox1">
-                            <label for="checkbox1">Recordarme</label>
+                            <input type="checkbox" id="rememberme_chk" name="rememberme_chk" >
+                            <label for="rememberme_chk">Recordarme</label>
                         </div>
+                        <input type="hidden" name="rememberme" id="rememberme" value="0">
                     </div>
                     <div class="col-md-6 text-right">
                         <a href="{{ url('/reseteo') }}" class="text-info small bold">Olvidó su clave?</a>
@@ -105,7 +107,7 @@
             <div class="pull-bottom sm-pull-bottom">
                 <div class="m-b-30 p-r-80 sm-m-t-20 sm-p-r-15 sm-p-b-20 clearfix">
                     <div class="col-sm-712col-md-12 no-padding">
-                        <img alt="" class="m-t-5" data-src="{{ asset('frontend/assets/img/logo_academicloud.png') }}" data-src-retina="{{ asset('frontend/assets/img/logo_academicloud.png') }}" src="{{ asset('frontend/assets/img/logo_academicloud.png') }}" width="149" height="44">
+                        <img alt="" class="m-t-5" data-src="{{ asset('frontend/assets/img/logo_academicloud_bk.png') }}" data-src-retina="{{ asset('frontend/assets/img/logo_academicloud_bk.png') }}" src="{{ asset('frontend/assets/img/logo_academicloud_bk2x.png') }}" width="149" height="44">
                         <p>
                             <small>Sistema de Gestión Académica en la Nube </small>
                         </p>
@@ -133,18 +135,33 @@
 <script type="text/javascript" src="{{ asset('frontend/assets/plugins/classie/classie.js') }}"></script>
 <script src="{{ asset('frontend/assets/plugins/switchery/js/switchery.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('frontend/assets/plugins/jquery-validation/js/jquery.validate.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('frontend/assets/plugins/jquery-validation/js/localization/messages_es.min.js') }}" type="text/javascript"></script>
 <!-- END VENDOR JS -->
 <!-- BEGIN CORE TEMPLATE JS -->
 <script src="{{ asset('frontend/pages/js/pages.min.js') }}"></script>
 <!-- END CORE TEMPLATE JS -->
 <!-- BEGIN PAGE LEVEL JS -->
 <script src="{{ asset('frontend/assets/js/scripts.js') }}" type="text/javascript"></script>
+<script src="{{ asset('frontend/assets/plugins/toastr/toastr.min.js') }}" type="text/javascript"></script>
 <!-- END PAGE LEVEL JS -->
 <script>
     $(function()
     {
-        $('#form-login').validate()
+        $('#frmLogin').validate();
+        $('#rememberme_chk').change(function() {
+            if($(this).is(":checked")) {
+                $('#rememberme').val('1');
+            }else{
+                $('#rememberme').val('0');
+            }
+        });
+
     })
 </script>
+
+
+{!! Toastr::render() !!}
+
+
 </body>
 </html>

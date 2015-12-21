@@ -29,7 +29,7 @@ new Vue ({
             if($('#frm_reseteo').valid())
             {
                 $('#modalFillIn').modal('show');
-                this.$http.post('pc_reseteo', { username: this.username, correo: this.correo }, function(resultset){
+                this.$http.post('resetear_clave', { username: this.username, correo: this.correo }, function(resultset){
 
                     if(resultset[0] == 1)
                     {
@@ -38,6 +38,7 @@ new Vue ({
                         });
                     }else
                     {
+                        $('#modalFillIn').modal('hide');
                         swal({   title: "Ha ocurrido un error!",   text: resultset[1],   type: "error",   confirmButtonText: "Aceptar", confirmButtonColor: '#8a7dbe' }, function(){
                             $('#modalFillIn').modal('hide');
                         });

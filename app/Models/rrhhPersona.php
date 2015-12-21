@@ -19,6 +19,14 @@ class rrhhPersona extends Model implements AuthenticatableContract, CanResetPass
     public $timestamps = false;
 
 
+    public function genero()
+    {
+        return $this->belongsTo('App\Models\rrhhGenero', 'genero_id');
+    }
+
+
+
+
     public function getNombreCorto1Attribute()
     {
         $nombres = explode(" ", $this->attributes['nombre_corto']);

@@ -12,9 +12,13 @@
 */
 
 Route::get('/', 'Acceso\AccesoController@login');
-Route::get('acceso', 'Acceso\AccesoController@login');
+Route::post('iniciar_sesion', 'Acceso\AccesoController@iniciar_sesion');
 
 Route::get('reseteo', 'Acceso\AccesoController@reseteo');
-Route::post('pc_reseteo', 'Acceso\AccesoController@pc_reseteo');
+Route::post('resetear_clave', 'Acceso\AccesoController@resetear_clave');
 
-Route::get('test', 'Acceso\AccesoController@test');
+Route::get('inicio', 'Acceso\AccesoController@inicio');
+Route::get('cerrar_sesion', 'Acceso\AccesoController@cerrar_sesion');
+
+Route::get('usuario/actualizacion_clave', 'Acceso\AccesoController@actualizacion_clave');
+Route::post('usuario/actualizar_clave', 'Acceso\AccesoController@actualizar_clave');

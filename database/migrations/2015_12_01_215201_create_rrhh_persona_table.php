@@ -28,6 +28,7 @@ class CreateRrhhPersonaTable extends Migration
             $table->string('remember_token', 255)->nullable();
             $table->boolean('requiere_cambio_clave');
             $table->date('fecha_creacion');
+            $table->string('path_avatar', 500)->nullable();
 
             $table->foreign('tipo_identificacion_id')->references('tipo_identificacion_id')->on('rrhh_tipo_identificacion');
             $table->foreign('genero_id')->references('genero_id')->on('rrhh_genero');

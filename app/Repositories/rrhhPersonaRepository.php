@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use Bosnadev\Repositories\Eloquent\Repository;
+use Carbon\Carbon;
 
 class rrhhPersonaRepository extends Repository
 {
@@ -14,7 +15,7 @@ class rrhhPersonaRepository extends Repository
 
 
 
-    function reseteo_clave($username, $correo, $ie)
+    function resetear_clave($username, $correo, $ie)
     {
         $existencia = $this->model->where('username', $username)->get()->count();
 
@@ -24,7 +25,7 @@ class rrhhPersonaRepository extends Repository
             if($usuario->correo == $correo)
             {
                 $nueva_clave = $usuario->generarClave();
-                $password_hash = \Hash::make($nueva_clave);
+                $password_hash = bcrypt($nueva_clave);
                 $this->update(['password' => $password_hash], $usuario->persona_id, 'persona_id');
 
                 \Mail::queue('mails.acceso_reseteo_clave', ['usuario'=>$usuario->nombre_corto, 'ie' => $ie->denominacion, 'nueva_clave' => $nueva_clave], function($message) use($usuario, $ie) {
@@ -48,9 +49,54 @@ class rrhhPersonaRepository extends Repository
         }
     }
 
+    public function iniciar_sesion($username, $password)
+    {
+        $existencia_us = rrhhPersona::where('username', '=', $username)->count();
+
+        if ($existencia_us > 0)
+        {
+            $usuario = rrhhPersona::where('username', '=', $username)->first();
+            if (\Hash::check($password, $usuario->password))
+            {
+                return array(1, 'Datos correstos');
+            }else
+            {
+                return array(0, 'La clave de acceso ingresada es incorrecta!');
+            }
+        }
+        else
+        {
+            return array(0, 'Identificación y/o clave de acceso incorrectos!');
+        }
+
+    }
+
+    function actualizar_clave($password_actual, $password_nuevo, $persona, $ie)
+    {
+
+        if (\Hash::check($password_actual, $persona->password))
+        {
+
+            $password_hash = bcrypt($password_nuevo);
+            $this->update(['password' => $password_hash], $persona->persona_id, 'persona_id');
+            $date = Carbon::now();
+
+            \Mail::queue('mails.acceso_actualizacion_clave', ['usuario' => $persona->nombre_corto, 'fecha' => $date->toDateTimeString()], function($message) use($persona, $ie) {
+                $message->from(env('MAIL_NOREPLYADRESSS'), env('MAIL_NOREPLYNAME'));
+                $message->to($persona->correo, $persona->nombre_corto)->subject('Actualización de Clave de Acceso - ' . $ie->denominacion . ' - AcademiCloud');
+
+                $headers = $message->getHeaders();
+                $headers->addTextHeader('X-MC-Template', env('MAIL_TEMPLATE'));
+            });
+
+            return array(1, 'La clave de acceso ha sido actualizada correctamente.');
 
 
-
+        }else
+        {
+            return array(0, 'La clave anterior ingresada es incorrecta.');
+        }
+    }
 
 
 
