@@ -56,7 +56,23 @@
 <body class="fixed-header   ">
     <!-- BEGIN SIDEBAR -->
     <div class="page-sidebar" data-pages="sidebar">
-        <div id="appMenu" class="sidebar-overlay-slide from-top">
+        <div class="sidebar-overlay-slide from-top" id="appMenu">
+            <div class="row">
+                <div class="col-xs-6 no-padding">
+                    <a href="#" class="p-l-40"><img src="{{ asset('frontend/assets/img/subsis_funcionarios.jpg') }}" alt="socail" width="83" height="83">
+                    </a>
+                </div>
+                <div class="col-xs-6 no-padding">
+                    <a href="#" class="p-l-10"><img src="{{ asset('frontend/assets/img/subsis_estudiantes.jpg') }}" alt="socail" width="83" height="83">
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 m-t-20 no-padding">
+                    <a href="#" class="p-l-40"><img src="{{ asset('frontend/assets/img/subsis_representante.jpg') }}" alt="socail" width="83" height="83">
+                    </a>
+                </div>
+            </div>
         </div>
         <!-- BEGIN SIDEBAR HEADER -->
         <div class="sidebar-header">
@@ -142,7 +158,7 @@
             <div class=" pull-left sm-table">
                 <div class="header-inner">
                     <div class="brand inline">
-                        <img src="{{ asset('frontend/assets/img/logo_academicloud_bk.png') }}" alt="logo" data-src="{{ asset('frontend/assets/img/logo_academicloud_bk.png') }}" data-src-retina="{{ asset('frontend/assets/img/logo_academicloud_bk2x.png') }}" width="150" class="logomain" >
+                        <img src="{{ asset('frontend/assets/img/logo_academicloud_nw.png') }}" alt="logo" data-src="{{ asset('frontend/assets/img/logo_academicloud_nw.png') }}" data-src-retina="{{ asset('frontend/assets/img/logo_academicloud_nw2x.png') }}" width="150" class="logomain" >
                     </div>
                     <!-- BEGIN NOTIFICATION DROPDOWN -->
                     <ul class="notification-list no-margin hidden-sm hidden-xs b-grey b-l b-r no-style p-l-30 p-r-20">

@@ -19,16 +19,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-title">Form Options
-                        </div>
-                        <div class="tools">
-                            <a class="collapse" href="javascript:;"></a>
-                            <a class="config" data-toggle="modal" href="#grid-config"></a>
-                            <a class="reload" href="javascript:;"></a>
-                            <a class="remove" href="javascript:;"></a>
-                        </div>
-                    </div>
+
                     <div class="panel-body">
                         <h5>
                             Por favor ingrese los siguientes datos:
