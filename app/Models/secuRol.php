@@ -19,4 +19,8 @@ class secuRol extends Model
     {
         return $this->hasMany('App\Models\secuRolPersona', 'rol_id');
     }
+    public function asignaciones_modulos()
+    {
+        return $this->hasMany('App\Models\secuRolModulo', 'rol_id');
+    }
 }
