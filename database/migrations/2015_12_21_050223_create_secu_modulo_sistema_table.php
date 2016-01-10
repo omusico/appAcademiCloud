@@ -16,10 +16,11 @@ class CreateSecuModuloSistemaTable extends Migration
             $table->bigIncrements('modulo_sistema_id');
             $table->bigInteger('grupo_opciones_id')->unsigned();
             $table->string('identificador_acceso', 100);
+            $table->integer('orden');
             $table->string('denominacion', 250);
             $table->string('denominacion_visual', 250);
             $table->string('controlador', 250);
-            $table->string('vista', 250);
+            $table->string('vista', 250)->nullable();
             $table->string('thumbnail', 250);
 
 

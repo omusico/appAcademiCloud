@@ -43,7 +43,8 @@
 
     @show
 
-
+    <script src="{{ asset('frontend/assets/plugins/pace/pace.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('frontend/assets/plugins/jquery/jquery-1.11.1.min.js') }}" type="text/javascript"></script>
     <script type="text/javascript">
         window.onload = function()
         {
@@ -225,17 +226,9 @@
         <!-- END HEADER -->
         <!-- END PAGE HEADER WRAPPER -->
         <!-- START PAGE CONTENT WRAPPER -->
-        <div class="page-content-wrapper">
-            <!-- START PAGE CONTENT -->
-            <div class="content">
-                @section('PAGE_SUBHEADER')
 
-                @show
-                @yield('content')
-            </div>
-            <!-- END PAGE CONTENT -->
+        @yield('content')
 
-        </div>
         <!-- END PAGE CONTENT WRAPPER -->
     </div>
     <!-- END PAGE CONTAINER -->
@@ -695,8 +688,7 @@
     <!-- END OVERLAY -->
 
     <!-- BEGIN VENDOR JS -->
-    <script src="{{ asset('frontend/assets/plugins/pace/pace.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('frontend/assets/plugins/jquery/jquery-1.11.1.min.js') }}" type="text/javascript"></script>
+
     <script src="{{ asset('frontend/assets/plugins/modernizr.custom.js') }}" type="text/javascript"></script>
     <script src="{{ asset('frontend/assets/plugins/jquery-ui/jquery-ui.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('frontend/assets/plugins/boostrapv3/js/bootstrap.min.js') }}" type="text/javascript"></script>

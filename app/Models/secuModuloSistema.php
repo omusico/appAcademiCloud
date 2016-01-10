@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class secuModuloSistema extends Model
 {
     protected $table = 'secu_modulo_sistema';
-    protected $primaryKey = 'grupo_opciones_id';
-    protected $fillable = ['grupo_opciones_id', 'identificador_acceso', 'denominacion', 'denominacion_visual', 'controlador', 'vista', 'thumbnail'];
+    protected $primaryKey = 'modulo_sistema_id';
+    protected $fillable = ['grupo_opciones_id', 'identificador_acceso', 'orden', 'denominacion', 'denominacion_visual', 'controlador', 'vista', 'thumbnail'];
     public $timestamps = false;
 
 
